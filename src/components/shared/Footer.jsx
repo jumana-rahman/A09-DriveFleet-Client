@@ -46,7 +46,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/my-bookings" className="hover:text-[#E50914] transition">
+              <Link href="/bookings" className="hover:text-[#E50914] transition">
                 My Bookings
               </Link>
             </li>

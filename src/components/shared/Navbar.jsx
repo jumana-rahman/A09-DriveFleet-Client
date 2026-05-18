@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { Button } from "@heroui/react";
 import { Bars, Xmark } from "@gravity-ui/icons";
 import Image from "next/image";
 
@@ -12,7 +11,7 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "Explore Cars", path: "/explore-cars" },
   { name: "Add Car", path: "/add-car" },
-  { name: "My Bookings", path: "/my-bookings" },
+  { name: "My Bookings", path: "/bookings" },
 ];
 
 export default function Navbar() {
