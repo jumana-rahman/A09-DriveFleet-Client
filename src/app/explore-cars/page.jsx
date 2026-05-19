@@ -15,9 +15,9 @@ const ExploreCarsPage = async () => {
 
       {/* Heading */}
       <div className="max-w-7xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-black bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] bg-clip-text text-transparent">
-          Explore Premium Cars
-        </h1>
+        <h2 className="text-4xl md:text-5xl font-black leading-tight text-foreground">
+            Explore <span className="bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] bg-clip-text text-transparent">Premium Cars</span>
+        </h2>
 
         <p className="mt-4 text-[var(--muted)] max-w-2xl mx-auto">
           Discover luxury, sports, SUV, and family cars for your perfect journey.
