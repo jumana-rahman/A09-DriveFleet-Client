@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 const Hero = () => {
   return (
@@ -23,12 +24,12 @@ const Hero = () => {
       <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6">
 
         {/* Title */}
-        <h1 className="text-4xl md:text-6xl font-black text-[var(--foreground)] leading-tight">
+        <h1 className="text-4xl md:text-6xl font-black text-[#ffffff] leading-tight">
           Drive Your <span className="text-[#E50914]">Dream Car</span> Today
         </h1>
 
         {/* Description */}
-        <p className="mt-4 max-w-2xl text-sm md:text-base text-[var(--muted)]">
+        <p className="mt-8 max-w-2xl text-sm md:text-base text-gray-300">
           Experience premium car rentals with comfort, style, and affordability.
           Choose from luxury, SUV, and sports cars for your perfect journey.
         </p>
@@ -36,9 +37,9 @@ const Hero = () => {
         {/* Button */}
         <Link
           href="/explore-cars"
-          className="mt-8 px-8 py-3 rounded-xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-white font-semibold shadow-lg hover:bg-[#c40812] transition-all duration-300"
+          className="mt-8 px-8 py-3 rounded-xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-white font-semibold shadow-lg transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-gray-600"
         >
-          Explore Cars
+          Explore Cars <FaArrowUpRightFromSquare />
         </Link>
 
       </div>
