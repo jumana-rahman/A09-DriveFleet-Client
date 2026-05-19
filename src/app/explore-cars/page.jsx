@@ -1,11 +1,7 @@
 import CarCard from "@/components/ui/CarCard";
+import { fetchCars } from "@/lib/cars/data";
 import { BiSearch } from "react-icons/bi";
 
-const fetchCars = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars`);
-  const data = await res.json();
-  return data || [];
-};
 
 const ExploreCarsPage = async () => {
   const cars = await fetchCars();

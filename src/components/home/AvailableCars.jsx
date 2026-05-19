@@ -1,19 +1,9 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 import CarCard from "../ui/CarCard";
-
-
-const fetchCars = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars`, {
-    cache: "no-store",
-  });
-
-  const data = await res.json();
-
-  return data?.slice(0, 6) || [];
-};
+import { fetchAvailableCars } from "@/lib/cars/data";
 
 const AvailableCars = async () => {
-  const cars = await fetchCars();
+  const cars = await fetchAvailableCars();
 
   return (
     <section className="relative py-24 overflow-hidden bg-[var(--background)]">

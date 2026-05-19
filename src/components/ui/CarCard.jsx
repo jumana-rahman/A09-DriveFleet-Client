@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const CarCard = ({ car }) => {
   const {
+    _id,
     image,
     carName,
     availability,
@@ -71,7 +72,7 @@ const CarCard = ({ car }) => {
 
           {/* Button */}
           <Link
-            href={`/cars/${car?._id}`}
+            href={`/explore-cars/${_id}`}
             className="px-5 py-3 rounded-xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-white font-semibold shadow-lg hover:shadow-red-500/20 transition-all duration-300"
           >
             Details
