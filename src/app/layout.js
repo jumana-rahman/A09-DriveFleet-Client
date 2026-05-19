@@ -24,9 +24,9 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
-        <Navbar/>
-          {children}
-        <Footer/>
+          <Navbar/>
+            {children}
+          <Footer/>
         </ThemeProvider>
         </body>
     </html>
