@@ -13,7 +13,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0B0B0B] border-t border-[#262626] text-gray-300 mt-16">
+    <footer className="bg-[var(--background)] border-t border-[#262626] text-[var(--muted)] mt-16">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
 
         {/* Logo + About */}
@@ -22,12 +22,12 @@ const Footer = () => {
             <Image src="/logo.png" alt="logo" width={70} height={70} />
 
             <h2 className="text-2xl font-black">
-              <span className="text-white">Drive</span>
+              <span className="text-[var(--foreground)]">Drive</span>
               <span className="text-[#E50914]">Fleet</span>
             </h2>
           </div>
 
-          <p className="text-sm text-gray-400 leading-6">
+          <p className="text-sm text-[var(--muted)] leading-6">
             DriveFleet is a premium car rental platform offering luxury,
             comfort, and affordability. Book your ride easily and travel in style.
           </p>
@@ -35,28 +35,28 @@ const Footer = () => {
 
         {/* Useful Links */}
         <div>
-          <h3 className="text-white font-semibold mb-4 uppercase tracking-wide">
+          <h3 className="text-[var(--foreground)] font-semibold mb-4 uppercase tracking-wide">
             Useful Links
           </h3>
 
           <ul className="space-y-3 text-sm">
             <li>
-              <Link href="/explore-cars" className="hover:text-[#E50914] transition">
+              <Link href="/explore-cars" className="hover:text-[#E50914] transition text-[var(--muted)]">
                 Explore Cars
               </Link>
             </li>
             <li>
-              <Link href="/bookings" className="hover:text-[#E50914] transition">
+              <Link href="/bookings" className="hover:text-[#E50914] transition text-[var(--muted)]">
                 My Bookings
               </Link>
             </li>
             <li>
-              <Link href="/policy" className="hover:text-[#E50914] transition">
+              <Link href="/policy" className="hover:text-[#E50914] transition text-[var(--muted)]">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-[#E50914] transition">
+              <Link href="/terms" className="hover:text-[#E50914] transition text-[var(--muted)]">
                 Terms & Conditions
               </Link>
             </li>
@@ -65,11 +65,11 @@ const Footer = () => {
 
         {/* Contact + Social */}
         <div>
-          <h3 className="text-white font-semibold mb-4 uppercase tracking-wide">
+          <h3 className="text-[var(--foreground)] font-semibold mb-4 uppercase tracking-wide">
             Contact Info
           </h3>
 
-          <div className="space-y-3 text-sm">
+          <div className="space-y-3 text-sm text-[var(--muted)]">
             <p className="flex items-center gap-2">
               <FaEnvelope className="text-[#E50914]" />
               support@drivefleet.com
@@ -91,7 +91,7 @@ const Footer = () => {
             <a
               href="https://www.facebook.com"
               target="_blank"
-              className="p-2 rounded-lg border border-[#262626] hover:border-[#E50914] hover:text-[#E50914] transition"
+              className="p-2 rounded-lg border border-[#262626] text-[var(--muted)] hover:border-[#E50914] hover:text-[#E50914] transition"
             >
               <FaFacebookF />
             </a>
@@ -99,7 +99,7 @@ const Footer = () => {
             <a
               href="https://www.instagram.com/"
               target="_blank"
-              className="p-2 rounded-lg border border-[#262626] hover:border-[#E50914] hover:text-[#E50914] transition"
+              className="p-2 rounded-lg border border-[#262626] text-[var(--muted)] hover:border-[#E50914] hover:text-[#E50914] transition"
             >
               <FaInstagram />
             </a>
@@ -107,7 +107,7 @@ const Footer = () => {
             <a
               href="https://www.x.com"
               target="_blank"
-              className="p-2 rounded-lg border border-[#262626] hover:border-[#E50914] hover:text-[#E50914] transition"
+              className="p-2 rounded-lg border border-[#262626] text-[var(--muted)] hover:border-[#E50914] hover:text-[#E50914] transition"
             >
               <FaXTwitter />
             </a>
@@ -116,7 +116,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[#262626] text-center py-4 text-xs text-gray-500">
+      <div className="border-t border-[#262626] text-center py-4 text-xs text-[var(--muted)]">
         © {new Date().getFullYear()} DriveFleet. All rights reserved.
       </div>
     </footer>
