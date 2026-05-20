@@ -1,9 +1,37 @@
 "use client";
 
+import { signUp } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const RegisterPage = () => {
+  const router = useRouter();
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    const registerData = Object.fromEntries(formData.entries());
+    
+    const { data, error } = await signUp.email({
+      ...registerData,
+    })
+
+    if(error){
+      toast.error("Registration Failed!");
+      return
+    }
+    else{
+      router.push("/");
+      toast.success("Registration Successful!")
+    }
+
+
+
+  }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--background)] px-4 py-30">
 
@@ -41,7 +69,8 @@ const RegisterPage = () => {
           </div>
 
           {/* Form */}
-          <form className="mt-10 space-y-6">
+          <form className="mt-10 space-y-6" onSubmit={handleRegister}>
+            
 
             {/* Name */}
             <div>
@@ -52,6 +81,7 @@ const RegisterPage = () => {
               <input
                 type="text"
                 placeholder="Enter your full name"
+                name="name"
                 className="w-full rounded-2xl border border-[var(--border-color)] bg-[var(--background)] px-5 py-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[#E50914] focus:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
               />
             </div>
@@ -65,6 +95,7 @@ const RegisterPage = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
+                name="email"
                 className="w-full rounded-2xl border border-[var(--border-color)] bg-[var(--background)] px-5 py-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[#E50914] focus:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
               />
             </div>
@@ -76,8 +107,9 @@ const RegisterPage = () => {
               </label>
 
               <input
-                type="text"
+                type="url"
                 placeholder="Enter your profile photo URL"
+                name="photo"
                 className="w-full rounded-2xl border border-[var(--border-color)] bg-[var(--background)] px-5 py-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[#E50914] focus:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
               />
             </div>
@@ -91,6 +123,7 @@ const RegisterPage = () => {
               <input
                 type="password"
                 placeholder="Create a password"
+                name="password"
                 className="w-full rounded-2xl border border-[var(--border-color)] bg-[var(--background)] px-5 py-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[#E50914] focus:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
               />
             </div>
