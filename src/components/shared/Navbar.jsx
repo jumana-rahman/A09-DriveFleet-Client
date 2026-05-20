@@ -46,6 +46,7 @@ export default function Navbar() {
     await signOut();
     toast.success("Logged out!");
     router.push("/");
+    router.refresh();
   }
 
   return (
@@ -119,7 +120,7 @@ export default function Navbar() {
                         <Avatar className="border-2 border-[#E50914] hover:shadow-[0_0_15px_rgba(229,9,20,0.4)] transition-all duration-300">
                           <Avatar.Image
                             alt="User"
-                            src={session?.user?.image}
+                            src={session?.user?.image || 'https://media.istockphoto.com/id/2171382633/vector/user-profile-icon-anonymous-person-symbol-blank-avatar-graphic-vector-illustration.jpg?'}
                             referrerPolicy="no-referrer"
                           />
 
@@ -164,7 +165,7 @@ export default function Navbar() {
                             </Link>
 
                             <Link
-                              href={"/my-added-cars"}
+                              href={"/my-added-car"}
                               className="px-4 py-3 rounded-xl text-sm text-[var(--foreground)] hover:bg-[#E50914]/10 hover:text-[#E50914]"
                               onClick={() => setDropdownOpen(false)}
                             >
@@ -241,7 +242,7 @@ export default function Navbar() {
                         <Avatar className="border-2 border-[#E50914] hover:shadow-[0_0_15px_rgba(229,9,20,0.4)] transition-all duration-300">
                           <Avatar.Image
                             alt="User"
-                            src={session?.user?.image}
+                            src={session?.user?.image  || 'https://media.istockphoto.com/id/2171382633/vector/user-profile-icon-anonymous-person-symbol-blank-avatar-graphic-vector-illustration.jpg?'}
                             referrerPolicy="no-referrer"
                           />
 
@@ -270,7 +271,7 @@ export default function Navbar() {
                           <div className="flex flex-col p-2">
 
                             <Link
-                              href={"/my-added-cars"}
+                              href={"/my-added-car"}
                               className="px-4 py-3 rounded-xl text-sm text-[var(--foreground)] hover:bg-[#E50914]/10 hover:text-[#E50914]"
                               onClick={() => setDropdownOpen(false)}
                             >

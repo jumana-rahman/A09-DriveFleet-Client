@@ -105,7 +105,7 @@ const RegisterPage = () => {
               </label>
 
               <input
-                type="url"
+                type="text"
                 placeholder="Enter your profile photo URL"
                 name="photo"
                 className="w-full rounded-2xl border border-[var(--border-color)] bg-[var(--background)] px-5 py-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[#E50914] focus:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
