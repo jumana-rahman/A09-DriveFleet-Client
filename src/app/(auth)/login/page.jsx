@@ -17,6 +17,7 @@ const LoginPage = () => {
         ...loginData,
         callbackURL: "/"
       })
+
   
       if(error){
         toast.error("Wrong Credentials!");
