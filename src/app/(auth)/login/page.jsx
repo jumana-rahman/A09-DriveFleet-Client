@@ -1,9 +1,31 @@
 "use client";
 
+import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
+  const handleLogin = async (e) => {
+      e.preventDefault();
+  
+      const formData = new FormData(e.currentTarget);
+  
+      const loginData = Object.fromEntries(formData.entries());
+      
+      const { data, error } = await signIn.email({
+        ...loginData,
+        callbackURL: "/"
+      })
+  
+      if(error){
+        toast.error("Wrong Credentials!");
+        return
+      }
+      else{
+        toast.success("Login Successful!")
+      }
+  
+    }
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--background)] px-4 py-30">
 
@@ -38,7 +60,7 @@ const LoginPage = () => {
           </div>
 
           {/* Form */}
-          <form className="mt-10 space-y-6">
+          <form className="mt-10 space-y-6" onSubmit={handleLogin}>
 
             {/* Email */}
             <div>
@@ -49,6 +71,7 @@ const LoginPage = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
+                name="email"
                 className="w-full rounded-2xl border border-[var(--border-color)] bg-[var(--background)] px-5 py-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[#E50914] focus:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
               />
             </div>
@@ -62,6 +85,7 @@ const LoginPage = () => {
               <input
                 type="password"
                 placeholder="Enter your password"
+                name="password"
                 className="w-full rounded-2xl border border-[var(--border-color)] bg-[var(--background)] px-5 py-4 text-[var(--foreground)] outline-none transition-all duration-300 focus:border-[#E50914] focus:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
               />
             </div>

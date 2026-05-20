@@ -28,8 +28,6 @@ const RegisterPage = () => {
       toast.success("Registration Successful!")
     }
 
-
-
   }
 
   return (
