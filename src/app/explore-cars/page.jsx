@@ -3,8 +3,11 @@ import { fetchCars } from "@/lib/cars/data";
 import { BiSearch } from "react-icons/bi";
 
 
-const ExploreCarsPage = async () => {
-  const cars = await fetchCars();
+const ExploreCarsPage = async ({searchParams}) => {
+
+  const sParams = await searchParams;
+
+  const cars = await fetchCars(sParams?.searchTerm || '');
 
   return (
     <section className="pt-30 pb-20 px-4 md:px-8 bg-[var(--background)] min-h-screen">
@@ -29,16 +32,20 @@ const ExploreCarsPage = async () => {
           <input
             type="text"
             placeholder="Search cars by name..."
-            className="w-full bg-[var(--card-bg)] border border-[var(--border-color)] rounded-2xl py-4 pl-14 pr-4 outline-none text-[var(--foreground)] placeholder:text-[var(--soft)] focus:border-[#E50914] transition-all duration-300"
+            className="w-full bg-[var(--card-bg)] border border-[var(--border-color)] rounded-2xl py-4 pl-14 pr-28 outline-none text-[var(--foreground)] placeholder:text-[var(--soft)] focus:border-[#E50914] transition-all duration-300"
           />
 
+          {/* Search Icon */}
           <BiSearch className="absolute left-5 top-1/2 -translate-y-1/2 text-[var(--soft)]" />
+
+          {/* Search Button */}
+          <button className="absolute right-2 top-1/2 -translate-y-1/2 px-6 py-2 rounded-xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-white font-semibold shadow-lg hover:shadow-red-500/20 transition-all duration-300 py-4">
+            Search
+          </button>
         </div>
 
         {/* Filter */}
-        <button className="w-full md:w-auto px-8 py-4 rounded-2xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-white font-semibold shadow-lg hover:shadow-red-500/20 transition-all duration-300">
-          Filter Cars
-        </button>
+        
       </div>
 
       {/* Cars Grid */}
