@@ -2,6 +2,7 @@
 
 import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
