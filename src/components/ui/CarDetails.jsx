@@ -8,6 +8,7 @@ import {
   FaLocationDot,
   FaMoneyBillWave,
   FaCircleCheck,
+  FaUsers,
 } from "react-icons/fa6";
 
 const CarDetails = ({ car }) => {
@@ -21,7 +22,7 @@ const CarDetails = ({ car }) => {
     pickupLocation,
     description,
     availability,
-  } = car;
+  } = car || {};
 
   return (
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -35,8 +36,8 @@ const CarDetails = ({ car }) => {
         {/* Image */}
         <div className="relative overflow-hidden rounded-3xl border border-[#E50914]/20 bg-[var(--card-bg)]">
           <Image
-            src={image}
-            alt={carName}
+            src={image || "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop"}
+            alt={carName || "Car Image"}
             width={700}
             height={500}
             className="w-full h-[500px] object-cover group-hover:scale-105 transition duration-700"
@@ -115,6 +116,20 @@ const CarDetails = ({ car }) => {
                 }`}
               >
                 {availability}
+              </h4>
+            </div>
+
+            
+          </div>
+
+          <div className="flex items-center gap-4 rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] p-5">
+            <FaUsers className="text-[#E50914] text-xl" />
+
+            <div>
+              <p className="text-sm text-[var(--soft)]">Bookings</p>
+
+              <h4 className="font-semibold text-[var(--foreground)]">
+                245+ Bookings
               </h4>
             </div>
           </div>

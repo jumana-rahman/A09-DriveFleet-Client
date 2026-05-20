@@ -1,21 +1,30 @@
 import CarDetails from "@/components/ui/CarDetails";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
-const fetchSingleCar = async (id) => {
+const fetchSingleCar = async (id, token) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/cars/${id}`,
     {
-      cache: "no-store",
+      headers: token
+        ? {
+            authorization: `Bearer ${token}`,
+          }
+        : {},
     }
   );
 
   const data = await res.json();
-
   return data || {};
 };
 
 const CarDetailsPage = async ({ params }) => {
   const {id} = await params;
-  const car = await fetchSingleCar(id);
+  const {token} = await auth.api.getToken({
+          headers: await headers(),
+  });
+  console.log("TOKEN:", token);
+  const car = await fetchSingleCar(id, token);
 
   return (
     <section className="bg-[var(--background)] min-h-screen pt-30 pb-20 px-4 md:px-8">
