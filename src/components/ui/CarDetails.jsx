@@ -3,6 +3,7 @@
 import { authClient, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import {
   FaCarSide,
@@ -24,9 +25,11 @@ const CarDetails = ({ car }) => {
     pickupLocation,
     description,
     availability,
+    bookingCount
   } = car || {};
 
   const {data: session} = useSession();
+  const router = useRouter();
   
   const handleBooking = async () => {
     const {data: jwtData} = await authClient.token();
@@ -42,6 +45,7 @@ const CarDetails = ({ car }) => {
       carName: car?.carName,
       image: car?.image
     }
+    console.log(updatedData)
 
     const res =  await fetch(`${process.env.NEXT_PUBLIC_API_URL}/booking/${car?._id}`,{
       method: "PATCH",
@@ -52,7 +56,14 @@ const CarDetails = ({ car }) => {
       body: JSON.stringify(updatedData)
     })
 
-    console.log(res);
+    const data = await res.json();
+    if(!data){
+      toast.error("Something went wrong!");
+    }
+    else{
+      toast.success("Your car has been booked!");
+      router.push("/bookings");
+    }
   }
 
   return (
@@ -160,7 +171,7 @@ const CarDetails = ({ car }) => {
               <p className="text-sm text-[var(--soft)]">Bookings</p>
 
               <h4 className="font-semibold text-[var(--foreground)]">
-                0
+                {`${bookingCount || 0}`}
               </h4>
             </div>
           </div>
