@@ -1,7 +1,9 @@
 "use client";
 
+import { authClient, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import {
   FaCarSide,
   FaChair,
@@ -23,6 +25,35 @@ const CarDetails = ({ car }) => {
     description,
     availability,
   } = car || {};
+
+  const {data: session} = useSession();
+  
+  const handleBooking = async () => {
+    const {data: jwtData} = await authClient.token();
+    const token = jwtData?.token;
+    if(!token){
+      toast.error("Authentication failed! Booking was not added!");
+      return;
+    }
+    const updatedData = {
+      userId: session?.user?.id,
+      userName: session?.user?.name,
+      userEmail: session?.user?.email,
+      carName: car?.carName,
+      image: car?.image
+    }
+
+    const res =  await fetch(`${process.env.NEXT_PUBLIC_API_URL}/booking/${car?._id}`,{
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(updatedData)
+    })
+
+    console.log(res);
+  }
 
   return (
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -129,7 +160,7 @@ const CarDetails = ({ car }) => {
               <p className="text-sm text-[var(--soft)]">Bookings</p>
 
               <h4 className="font-semibold text-[var(--foreground)]">
-                245+ Bookings
+                0
               </h4>
             </div>
           </div>
@@ -137,7 +168,7 @@ const CarDetails = ({ car }) => {
 
         {/* Button */}
         <div className="mt-12">
-          <Link
+          <Link onClick={handleBooking}
             href="#"
             className="inline-flex items-center justify-center rounded-2xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] px-10 py-4 text-white font-semibold shadow-lg hover:shadow-red-500/30 transition-all duration-300"
           >
