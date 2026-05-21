@@ -52,6 +52,12 @@ const RegisterPage = () => {
     router.push("/login");
   };
 
+  const handleGoogleLogin = async () => {
+        await authClient.signIn.social({
+          provider: "google",
+        });
+      }
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background px-4 py-30">
 
@@ -175,6 +181,7 @@ const RegisterPage = () => {
 
             {/* Google Button */}
             <button
+            onClick={handleGoogleLogin}
               type="button"
               className="w-full flex items-center justify-center gap-3 rounded-2xl border border-(--border-color) bg-background px-6 py-4 text-foreground font-medium transition-all duration-300 hover:border-[#E50914] hover:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
             >

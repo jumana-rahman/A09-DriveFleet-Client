@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn } from "@/lib/auth-client";
+import { authClient, signIn } from "@/lib/auth-client";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
@@ -27,6 +27,12 @@ const LoginPage = () => {
         toast.success("Login Successful!")
       }
   
+    }
+
+    const handleGoogleLogin = async () => {
+      await authClient.signIn.social({
+        provider: "google",
+      });
     }
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[var(--background)] px-4 py-30">
@@ -113,6 +119,7 @@ const LoginPage = () => {
 
             {/* Google Button */}
             <button
+            onClick={handleGoogleLogin}
               type="button"
               className="w-full flex items-center justify-center gap-3 rounded-2xl border border-[var(--border-color)] bg-[var(--background)] px-6 py-4 text-[var(--foreground)] font-medium transition-all duration-300 hover:border-[#E50914] hover:shadow-[0_0_20px_rgba(229,9,20,0.15)]"
             >
