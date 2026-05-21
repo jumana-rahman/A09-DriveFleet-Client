@@ -260,7 +260,7 @@ const CarDetails = ({ car }) => {
                 <Link href="#"
                   onClick={handleBooking}
                   disabled={loading}
-                  className="flex-1 py-3 rounded-xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-white font-semibold hover:shadow-red-500/30"
+                  className="flex-1 py-3 rounded-xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-center text-white font-semibold hover:shadow-red-500/30"
                 >
                   {loading ? "Booking..." : "Confirm Booking"}
                 </Link>
