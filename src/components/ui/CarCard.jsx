@@ -21,7 +21,7 @@ const CarCard = ({ car }) => {
       {/* Car Image */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src={image}
+          src={image || 'https://images.unsplash.com/photo-1704340142770-b52988e5b6eb?'}
           alt={carName}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-700"

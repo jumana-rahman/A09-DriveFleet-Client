@@ -24,21 +24,19 @@ const bookingsPage = async () => {
   console.log(booking);
 
   return (
-    <section className="pt-32 pb-20 px-4 md:px-8 bg-[var(--background)] min-h-screen">
-      <div className="max-w-7xl mx-auto">
+    <section className="pt-30 pb-20 px-4 md:px-8 bg-[var(--background)] min-h-screen">
+      <div className="max-w-7xl mx-auto text-center">
 
-        {/* Heading */}
-        <div className="text-center pt-42">
+          <h2 className="text-4xl md:text-5xl font-black leading-tight text-foreground">
+              My <span className="bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] bg-clip-text text-transparent">Bookings</span>
+          </h2>
 
-          <h1 className="text-4xl md:text-5xl font-black bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] bg-clip-text text-transparent">
-            My Bookings
-          </h1>
-
-          <p className="mt-5 max-w-2xl mx-auto text-[var(--muted)] leading-7">
-            Track all your premium car reservations and manage your rental
-            history with ease.
+          <p className="mt-4 text-[var(--muted)] max-w-2xl mx-auto">
+          Track all your premium car reservations and manage your rental
+          history with ease.
           </p>
-        </div>
+
+
 
         {/* Booking Layout */}
         

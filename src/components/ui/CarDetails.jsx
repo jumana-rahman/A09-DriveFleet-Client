@@ -4,6 +4,7 @@ import { authClient, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import {
   FaCarSide,
@@ -15,6 +16,11 @@ import {
 } from "react-icons/fa6";
 
 const CarDetails = ({ car }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [driverNeeded, setDriverNeeded] = useState("No");
+  const [specialNote, setSpecialNote] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const {
     _id,
     image,
@@ -43,9 +49,12 @@ const CarDetails = ({ car }) => {
       userName: session?.user?.name,
       userEmail: session?.user?.email,
       carName: car?.carName,
-      image: car?.image
+      image: car?.image,
+
+      carId: _id,
+      driverNeeded,
+      specialNote,
     }
-    console.log(updatedData)
 
     const res =  await fetch(`${process.env.NEXT_PUBLIC_API_URL}/booking/${car?._id}`,{
       method: "PATCH",
@@ -179,16 +188,92 @@ const CarDetails = ({ car }) => {
 
         {/* Button */}
         <div className="mt-12">
-          <Link onClick={handleBooking}
-            href="#"
-            className="inline-flex items-center justify-center rounded-2xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] px-10 py-4 text-white font-semibold shadow-lg hover:shadow-red-500/30 transition-all duration-300"
+          <Link href="#"
+          onClick={() => setIsOpen(true)}
+          disabled={availability !== "Available"}
+          className="inline-flex items-center justify-center rounded-2xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] px-10 py-4 text-white font-semibold shadow-lg hover:shadow-red-500/30 transition-all duration-300 disabled:opacity-50"
           >
             Book Now
           </Link>
         </div>
       </div>
+
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          
+          <div className="w-full max-w-lg rounded-3xl border border-[#E50914]/30 bg-[var(--card-bg)] shadow-[0_0_60px_rgba(229,9,20,0.15)] p-6 relative">
+
+            {/* Close */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-4 right-4 text-[var(--muted)] hover:text-red-500"
+            >
+              ✕
+            </button>
+
+            {/* Title */}
+            <h2 className="text-2xl font-black text-center bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] bg-clip-text text-transparent">
+              Book This Car
+            </h2>
+
+            <p className="text-center text-sm text-[var(--muted)] mt-2">
+              Complete your booking details
+            </p>
+
+            {/* Form */}
+            <div className="mt-6 space-y-5">
+
+              {/* Driver Needed */}
+              <div>
+                <label className="text-sm text-[var(--muted)]">Driver Needed</label>
+                <select
+                  value={driverNeeded}
+                  onChange={(e) => setDriverNeeded(e.target.value)}
+                  className="w-full mt-2 px-4 py-3 rounded-xl bg-[var(--background)] border border-[var(--border-color)] text-[var(--foreground)] focus:border-[#E50914]"
+                >
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+
+              {/* Special Note */}
+              <div>
+                <label className="text-sm text-[var(--muted)]">Special Note</label>
+                <textarea
+                  value={specialNote}
+                  onChange={(e) => setSpecialNote(e.target.value)}
+                  placeholder="Any special request..."
+                  className="w-full mt-2 px-4 py-3 min-h-[120px] rounded-xl bg-[var(--background)] border border-[var(--border-color)] text-[var(--foreground)] focus:border-[#E50914]"
+                />
+              </div>
+
+              {/* Buttons */}
+              <div className="flex gap-3 pt-2">
+
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="flex-1 py-3 rounded-xl border border-[var(--border-color)] text-[var(--foreground)] hover:bg-white/5"
+                >
+                  Cancel
+                </button>
+
+                <Link href="#"
+                  onClick={handleBooking}
+                  disabled={loading}
+                  className="flex-1 py-3 rounded-xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-white font-semibold hover:shadow-red-500/30"
+                >
+                  {loading ? "Booking..." : "Confirm Booking"}
+                </Link>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
-};
+}
 
 export default CarDetails;
