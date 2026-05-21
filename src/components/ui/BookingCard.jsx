@@ -15,17 +15,17 @@ const BookingCard = ({ bookings }) => {
     return (
       <div className="max-w-7xl mx-auto mt-16">
 
-        <div className="rounded-3xl border border-dashed border-[var(--border-color)] bg-[var(--card-bg)] p-10 flex flex-col items-center justify-center text-center min-h-[350px]">
+        <div className="rounded-3xl border border-dashed border-(--border-color) bg-(--card-bg) p-10 flex flex-col items-center justify-center text-center min-h-87.5">
 
           <div className="w-20 h-20 rounded-full bg-[#E50914]/10 flex items-center justify-center">
             <FaCarSide className="text-3xl text-[#E50914]" />
           </div>
 
-          <h3 className="mt-6 text-2xl font-bold text-[var(--foreground)]">
+          <h3 className="mt-6 text-2xl font-bold text-foreground">
             No Bookings Found
           </h3>
 
-          <p className="mt-3 text-[var(--muted)] max-w-sm leading-7">
+          <p className="mt-3 text-muted max-w-sm leading-7">
             Your upcoming car reservations will appear here after booking.
           </p>
 
@@ -49,7 +49,7 @@ const BookingCard = ({ bookings }) => {
 
           <div
             key={booking?._id}
-            className="group relative overflow-hidden rounded-3xl border border-[var(--border-color)] bg-[var(--card-bg)] p-8 shadow-lg hover:border-[#E50914] hover:shadow-[0_0_25px_rgba(229,9,20,0.2)] transition-all duration-500"
+            className="group relative overflow-hidden rounded-3xl border border-(--border-color) bg-(--card-bg) p-8 shadow-lg hover:border-[#E50914] hover:shadow-[0_0_25px_rgba(229,9,20,0.2)] transition-all duration-500"
           >
 
             {/* Glow */}
@@ -61,11 +61,11 @@ const BookingCard = ({ bookings }) => {
               <div className="flex items-center justify-between">
 
                 <div>
-                  <h2 className="text-2xl font-black text-[var(--foreground)]">
+                  <h2 className="text-2xl font-black text-foreground">
                     {booking?.carName}
                   </h2>
 
-                  <p className="mt-2 text-sm text-[var(--muted)]">
+                  <p className="mt-2 text-sm text-muted">
                     Premium Luxury Rental
                   </p>
                 </div>
@@ -79,7 +79,7 @@ const BookingCard = ({ bookings }) => {
               {/* Info */}
               <div className="mt-8 space-y-5">
 
-                <div className="flex items-center gap-3 text-[var(--muted)]">
+                <div className="flex items-center gap-3 text-muted">
                   <FaCalendarDays className="text-[#E50914]" />
 
                   <span>
@@ -88,7 +88,7 @@ const BookingCard = ({ bookings }) => {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 text-[var(--muted)]">
+                <div className="flex items-center gap-3 text-muted">
                   <FaLocationDot className="text-[#E50914]" />
 
                   <span>
@@ -96,7 +96,7 @@ const BookingCard = ({ bookings }) => {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 text-[var(--muted)]">
+                <div className="flex items-center gap-3 text-muted">
                   <FaCarSide className="text-[#E50914]" />
 
                   <span>
@@ -110,7 +110,7 @@ const BookingCard = ({ bookings }) => {
 
                 {/* Price */}
                 <div>
-                  <p className="text-sm text-[var(--soft)]">
+                  <p className="text-sm text-(--soft)">
                     Total Price
                   </p>
 
