@@ -23,7 +23,6 @@ const CarDetailsPage = async ({ params }) => {
   const {token} = await auth.api.getToken({
           headers: await headers(),
   });
-  console.log("TOKEN:", token);
   const car = await fetchSingleCar(id, token);
 
   return (
