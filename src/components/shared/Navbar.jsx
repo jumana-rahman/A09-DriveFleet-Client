@@ -172,12 +172,12 @@ export default function Navbar() {
                               My Added Cars
                             </Link>
 
-                            <Link href="#"
+                            <button
                               onClick={handleLogout}
                               className="mt-2 flex cursor-pointer items-center gap-2 px-4 py-3 rounded-xl text-sm text-left text-red-500 hover:bg-red-500/10"
                             >
                               Logout <FiLogOut />
-                            </Link>
+                            </button>
 
                           </div>
                         </div>
@@ -278,12 +278,12 @@ export default function Navbar() {
                               My Added Cars
                             </Link>
 
-                            <Link href="#"
+                            <button
                               onClick={handleLogout}
                               className="mt-2 flex cursor-pointer items-center gap-2 px-4 py-3 rounded-xl text-sm text-left text-red-500 hover:bg-red-500/10"
                             >
                               Logout <FiLogOut />
-                            </Link>
+                            </button>
 
                           </div>
                         </div>

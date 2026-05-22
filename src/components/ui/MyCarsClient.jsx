@@ -109,10 +109,10 @@ const MyCarsClient = ({ cars = [] }) => {
                         <FaPen /> Update
                     </Link>
 
-                    <Link href="#" onClick={() => setDeleteId(car._id)}
+                    <button onClick={() => setDeleteId(car._id)}
                         className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl pointer-cursor bg-red-600/10  text-red-500 hover:bg-red-600 hover:text-white transition-all duration-300">
                         <FaTrash /> Delete
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>

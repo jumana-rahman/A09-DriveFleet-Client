@@ -188,13 +188,13 @@ const CarDetails = ({ car }) => {
 
         {/* Button */}
         <div className="mt-12">
-          <Link href="#"
+          <button
           onClick={() => setIsOpen(true)}
           disabled={availability !== "Available"}
           className="inline-flex items-center justify-center rounded-2xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] px-10 py-4 text-white font-semibold shadow-lg hover:shadow-red-500/30 transition-all duration-300 disabled:opacity-50"
           >
             Book Now
-          </Link>
+          </button>
         </div>
       </div>
 
@@ -257,13 +257,13 @@ const CarDetails = ({ car }) => {
                   Cancel
                 </button>
 
-                <Link href="#"
+                <button
                   onClick={handleBooking}
                   disabled={loading}
                   className="flex-1 py-3 rounded-xl bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] text-center text-white font-semibold hover:shadow-red-500/30"
                 >
                   {loading ? "Booking..." : "Confirm Booking"}
-                </Link>
+                </button>
 
               </div>
 
