@@ -1,6 +1,7 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 import CarCard from "../ui/CarCard";
 import { fetchAvailableCars } from "@/lib/cars/data";
+import Link from "next/link";
 
 const AvailableCars = async () => {
   const cars = await fetchAvailableCars();
@@ -43,7 +44,7 @@ const AvailableCars = async () => {
 
         {/* Bottom Button */}
         <div className="flex justify-center mt-16">
-          <a
+          <Link
             href="/explore-cars"
             className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl border border-[#E50914]/40 px-8 py-4 font-semibold text-white transition-all duration-300 shadow-lg hover:shadow-gray-700"
           >
@@ -52,7 +53,7 @@ const AvailableCars = async () => {
             <span className="relative z-10 flex justify-center items-center gap-2 ">
               Browse All Cars <FaArrowRightLong />
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
