@@ -1,5 +1,7 @@
 import CarCard from "@/components/ui/CarCard";
+import Loader from "@/components/ui/Loader";
 import { fetchCars } from "@/lib/cars/data";
+import { Suspense } from "react";
 import { BiSearch, BiFilterAlt } from "react-icons/bi";
 
 
@@ -99,11 +101,15 @@ const ExploreCarsPage = async ({searchParams}) => {
       </div>
 
       {/* Cars Grid */}
+      <Suspense fallback={<Loader />}>
       <div className="max-w-7xl mx-auto mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {cars?.map((car) => (
-          <CarCard key={car?._id} car={car} />
+          
+
+            <CarCard key={car?._id} car={car} />
         ))}
       </div>
+      </Suspense>
     </section>
   );
 };
