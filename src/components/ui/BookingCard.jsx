@@ -45,8 +45,7 @@ const BookingCard = ({ bookings }) => {
 
       <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-        {bookings?.map((booking) => (
-
+        {(Array.isArray(bookings) ? bookings : []).map((booking) => (
           <div
             key={booking?._id}
             className="group relative overflow-hidden rounded-3xl border border-(--border-color) bg-(--card-bg) p-8 shadow-lg hover:border-[#E50914] hover:shadow-[0_0_25px_rgba(229,9,20,0.2)] transition-all duration-500"

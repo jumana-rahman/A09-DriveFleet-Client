@@ -82,7 +82,7 @@ const MyCarsClient = ({ cars = [] }) => {
                 
                 
 
-                <h2 className="text-xl font-black pt-2 text-[var(--foreground)]">
+                <h2 className="text-xl font-black text-[var(--foreground)]">
                 {car.carName}
                 </h2>
 
@@ -103,7 +103,7 @@ const MyCarsClient = ({ cars = [] }) => {
                 </p>
 
                 {/* Buttons */}
-                <div className="flex gap-3 mt-5 border-t border-foreground">
+                <div className="flex gap-3 mt-5">
                     
                     <Link href={`/my-added-car/update-car/${car?._id}`} className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl pointer-cursor bg-blue-600/10 text-blue-500 hover:text-blue-700">
                         <FaPen /> Update
@@ -144,7 +144,7 @@ const MyCarsClient = ({ cars = [] }) => {
                     handleDelete(deleteId);
                     setDeleteId(null);
                 }}
-                className="px-4 py-2 rounded-lg bg-red-600 text-red-600"
+                className="px-4 py-2 rounded-lg bg-red-600 text-white"
                 >
                 Delete
                 </button>
