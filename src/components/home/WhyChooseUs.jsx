@@ -14,11 +14,11 @@ const WhyChooseUs = () => {
                     </span>
                     </h2>
 
-                    <div className="w-24 h-[3px] bg-linear-to-r from-[#7A0000] via-[#E50914] to-[#7A0000] mx-auto mt-4 rounded-full"></div>
-
                     <p className="mt-4 text-[var(--muted)] max-w-2xl mx-auto">
                     We provide a premium car rental experience with comfort, safety, and affordability.
                     </p>
+
+                    <div className="w-40 h-[2px] bg-linear-to-r from-transparent via-[#E50914] to-transparent mx-auto mt-8"></div>
                 </div>
 
                 {/* Features */}
