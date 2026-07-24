@@ -27,10 +27,10 @@ const ExploreCarsPage = async ({searchParams}) => {
       </div>
 
       {/* Search + Filter */}
-      <div className="max-w-7xl mx-auto mt-10 flex flex-col lg:flex-row gap-5 items-center justify-between">
+      <div className="max-w-7xl mx-auto mt-10 flex flex-col items-center gap-4">
 
         {/* Search */}
-        <form className="relative w-full lg:w-[65%]">
+        <form className="relative w-full max-w-2xl mx-auto">
 
           <input
             type="text"
@@ -58,11 +58,8 @@ const ExploreCarsPage = async ({searchParams}) => {
 
         </form>
 
-      </div>
-
-      <div className="max-w-7xl mx-auto mt-3 flex flex-col lg:flex-row gap-3">
         {/* Filter */}
-        <form className="relative flex items-start justify-start gap-2 mt-10">
+        <form className="flex items-center gap-2">
 
           <input
             type="hidden"
@@ -71,15 +68,14 @@ const ExploreCarsPage = async ({searchParams}) => {
           />
 
           <div className="relative">
-
-            {/* <BiFilterAlt className="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-foreground pointer-events-none" /> */}
+            <BiFilterAlt className="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-foreground pointer-events-none" />
 
             <select
               name="type"
               defaultValue={sParams?.type || "All"}
               className="appearance-none cursor-pointer bg-(--card-bg) border border-(--border-color) hover:border-white/30 rounded-2xl py-3 pl-11 pr-10 text-sm font-medium text-foreground outline-none transition-all duration-300 shadow-md"
             >
-              <option value="All">Filter</option>
+              <option value="All">All Types</option>
               <option value="SUV">SUV</option>
               <option value="Sedan">Sedan</option>
               <option value="Sports">Sports</option>
@@ -87,7 +83,6 @@ const ExploreCarsPage = async ({searchParams}) => {
               <option value="Electric">Electric</option>
               <option value="Convertible">Convertible</option>
             </select>
-
           </div>
 
           <button
